@@ -1,17 +1,73 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import com.diccionario.Diccionario;
+
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Diccionario diccionario = new Diccionario();
 
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        diccionario.agregarPalabra("manzana", "apple");
+        diccionario.agregarPalabra("carro", "car");
+        diccionario.agregarPalabra("perro", "dog");
+        diccionario.agregarPalabra("gato", "cat");
+        diccionario.agregarPalabra("libro", "book");
+        diccionario.agregarPalabra("casa", "house");
+        diccionario.agregarPalabra("árbol", "tree");
+        diccionario.agregarPalabra("computadora", "computer");
+        diccionario.agregarPalabra("sol", "sun");
+        diccionario.agregarPalabra("luna", "moon");
+        diccionario.agregarPalabra("flor", "flower");
+        diccionario.agregarPalabra("agua", "water");
+        diccionario.agregarPalabra("pluma", "pen");
+        diccionario.agregarPalabra("amigo", "friend");
+        diccionario.agregarPalabra("familia", "family");
+        diccionario.agregarPalabra("música", "music");
+        diccionario.agregarPalabra("playa", "beach");
+        diccionario.agregarPalabra("ciudad", "city");
+        diccionario.agregarPalabra("montaña", "mountain");
+        diccionario.agregarPalabra("guitarra", "guitar");
+        diccionario.agregarPalabra("feliz", "happy");
+        Scanner entradas = new Scanner(System.in);
+        System.out.println("escribe las siguentes palabas en ingles:");
+       ArrayList<String> aleatorias =  diccionario.seleccionarPalabras();
+       ArrayList<String> valorAleatorias = new ArrayList<>();
+        for (int i = 0; i < aleatorias.size(); i++) {
+
+            System.out.println(aleatorias.get(i));
+            String clave = aleatorias.get(i);
+            valorAleatorias.add(diccionario.getTraduccionAlIngles(clave));
+
         }
+
+
+
+        for (int i = 0; i <valorAleatorias.size() ; i++) {
+            String respuesta = entradas.nextLine();
+
+            if (respuesta.toLowerCase().equals(valorAleatorias.get(i))) {
+                System.out.println("tu respuesta es correcta " + aleatorias.get(i) + ": " + valorAleatorias.get(i) );
+            }else {
+                System.out.println("tu respuesta es incorrecta " + aleatorias.get(i) + ": " + valorAleatorias.get(i) );
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
